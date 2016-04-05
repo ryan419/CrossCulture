@@ -11,7 +11,59 @@ div#extra{background:#CCC8B3;}
 div#footer{background:#BFBD93;}
 div#footer p{margin:0;padding:5px 10px}
 div#container{width:auto;margin:0 auto}
-div#content{float:left;width:100%;}
+div#content{float:left;width:70%;}
 div#navigation{float:right;width:30%;}
 div#extra{float:right;clear:right;width:30%;}
 div#footer{clear:both;width:100%}
+
+div#buttonculture{
+    width: 20%;
+    float: left;
+
+}
+div#sidebar{
+    float: left;
+    overflow-y: auto;
+    width: 30%;
+    height: 500px;
+}
+
+.btn-6 {
+    color: whitesmoke;
+    -webkit-transition: none;
+    -moz-transition: none;
+    transition: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 215px;
+    height: 83px;
+}
+
+.btn-6:active {
+    top: 2px;
+}
+
+.btn-6a:hover {
+    background: transparent;
+
+}
+
+.btn-1 {
+    border: 3px solid #fff;
+    color: #fff;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 215px;
+    height: 83px;
+}
+
+.btn-1a:hover,
+.btn-1a:active {
+    background-color: #fff;
+}

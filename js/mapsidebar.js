@@ -19,8 +19,6 @@ function load(culture) {
     //test(map,'test');
 
 
-    var sidebar = document.getElementById("sidebar");
-    sidebar.innerHTML="";
     //   function test(map, culture) {
 
 
@@ -61,13 +59,6 @@ function load(culture) {
                 '<div class="iw-bottom-gradient"></div>' +
                 '</div>';
 
-            var html_sidebar ='<div id="iw-container">' +
-                '<div class="iw-title">' + event + '</div>' + venue+
-                '<div class="iw-content">' +'<img src=' + logo + ' height="100" width="150">' +
-                '<p><a href="eventDetail.php?event=' + event +'">Get More Information</a></p>' +
-                '</div>' +
-                '<div class="iw-bottom-gradient"></div>';
-
 
             //var a = document.getElementById("Culture");
 
@@ -101,7 +92,7 @@ function load(culture) {
                     icon: icon1
                 });
                 var options={
-                    sidebarItem: html_sidebar,
+                    sidebarItem: html,
                     sidebarItemWidth: "326px"
                 }
                 marker.setOptions(options);
@@ -188,7 +179,7 @@ function SidebarItem(marker, opts){
 
 SidebarItem.prototype.addIn = function(block){
 
-    this.div= document.getElementById("sidebar");
+    this.div= document.getElementById("sidebar")
     this.div.appendChild(this.button);
 }
 // deletes a sidebar item

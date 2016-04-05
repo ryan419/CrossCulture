@@ -3,10 +3,29 @@
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
         <title>Event Map</title>
+        <style>
+
+
+            #sidebar{float:left; margin:10px;}
+
+            .sb_blue button {text-align: left;
+                cursor:pointer;
+                background-color: #99b3cc;
+                font-family: Verdana;
+                margin: 1px;}
+            .sb_blue button:focus {background-color: #eee;}
+            .sb_blue button:hover {background-color: #fff;}
+
+
+        </style>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAohlvHFSdn17Csms1_VTA-BNkvc4aJ9YY"
                 type="text/javascript"></script>
         <script id="eventinfo" type="text/javascript">
             //<![CDATA[
+
+            /**
+             * Created by Xiao on 2/04/2016.
+             */
 
 
             function load(culture) {
@@ -21,125 +40,161 @@
                 //test(map,'test');
 
 
-             //   function test(map, culture) {
-
-                    var infoWindow = new google.maps.InfoWindow({minWidth: 300, maxWidth: 350});
+                //   function test(map, culture) {
 
 
-                    // Change this depending on the name of your PHP file
-                    downloadUrl("genmapxml.php", function (data) {
-                        var xml = data.responseXML;
-                        var markers = xml.documentElement.getElementsByTagName("marker");
-                        for (var i = 0; i < markers.length; i++) {
-                            var event = markers[i].getAttribute("event");
-                            var descr = markers[i].getAttribute("descp");
-                            var cap = markers[i].getAttribute("capacity");
-                            var venue = markers[i].getAttribute("venue");
-                            var start = markers[i].getAttribute("start");
-                            var end = markers[i].getAttribute("end");
-                            var logo = markers[i].getAttribute("logo");
-                            var type = markers[i].getAttribute("type");
-                            var point = new google.maps.LatLng(
-                                    parseFloat(markers[i].getAttribute("lat")),
-                                    parseFloat(markers[i].getAttribute("lon")));
-                            //document.write(type);
+                var infoWindow = new google.maps.InfoWindow({minWidth: 300, maxWidth: 350});
 
 
-                            var html = '<div id="iw-container">' +
-                                    '<div class="iw-title">' + event + '</div>' +
-                                    '<div class="iw-content">' +
-                                    '<div class="iw-subTitle">Where?</div>' +
-                                    '<img src=' + logo + ' height="130" width="150">' +
-                                    '<p>' + venue + '</p>' +
-                                    '<div class="iw-subTitle">When?</div>' +
-                                    '<p>' + start.substr(0, 10) + '<br>' + start.substr(11, 5) + '</p>' +
-                                    '<p><a href="EventDetails.html?' + event + '&' + venue + '&' + descr + '">Get More Information</a></p>' +
-                                    '</div>' +
-                                    '<div class="iw-bottom-gradient"></div>' +
-                                    '</div>';
+                // Change this depending on the name of your PHP file
+                downloadUrl("../php/genmapxml.php", function (data) {
+                    var xml = data.responseXML;
+                    var markers = xml.documentElement.getElementsByTagName("marker");
+                    var b = culture;
+                    for (var i = 0; i < markers.length; i++) {
+                        var event = markers[i].getAttribute("event");
+                        var descr = markers[i].getAttribute("descp");
+                        var cap = markers[i].getAttribute("capacity");
+                        var venue = markers[i].getAttribute("venue");
+                        var start = markers[i].getAttribute("start");
+                        var end = markers[i].getAttribute("end");
+                        var logo = markers[i].getAttribute("logo");
+                        var type = markers[i].getAttribute("type");
+                        var point = new google.maps.LatLng(
+                                parseFloat(markers[i].getAttribute("lat")),
+                                parseFloat(markers[i].getAttribute("lon")));
+                        //document.write(type);
 
 
-                            //var a = document.getElementById("Culture");
 
-                            //var b = a.value;
+                        var html = '<div id="iw-container">' +
+                                '<div class="iw-title">' + event + '</div>' +
+                                '<div class="iw-content">' +
+                                '<div class="iw-subTitle">Where?</div>' +
+                                '<img src=' + logo + ' height="130" width="150">' +
+                                '<p>' + venue + '</p>' +
+                                '<div class="iw-subTitle">When?</div>' +
+                                '<p>' + start.substr(0, 10) + '<br>' + start.substr(11, 5) + '</p>' +
+                                '<p><a href="eventDetail.php?event=' + event +'">Get More Information</a></p>' +
+                                '</div>' +
+                                '<div class="iw-bottom-gradient"></div>' +
+                                '</div>';
 
-                            b = culture;
-                            //document.write(culture);
-                            //document.write(b);
 
-                            if ((type == b && b == 'Greek OR Greece') || type == b && b == 'Chinese OR China' || type == b && b == 'Turkish OR Turkey' || type == b && b == 'Indian OR India' || type == b && b == 'Italian OR Italy' || b == 'test') {
+                        //var a = document.getElementById("Culture");
 
-                                if (type == 'Greek OR Greece') {
-                                    var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
-                                }
-                                else if (type == 'Chinese OR China') {
-                                    var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
-                                }
-                                else if (type == 'Turkish OR Turkey') {
-                                    var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_purple.png';
-                                }
-                                else if (type == 'Indian OR India') {
-                                    var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_brown.png';
-                                }
-                                else if (type == 'Italian OR Italy') {
-                                    var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_green.png';
-                                }
+                        //var b = a.value;
 
-                                var marker = new google.maps.Marker({
-                                    map: map,
-                                    position: point,
-                                    icon: icon1
-                                });
-                                bindInfoWindow(marker, map, infoWindow, html);
+
+                        //document.write(culture);
+                        //document.write(b);
+
+                        if ((type == b && b == 'Greek OR Greece') || type == b && b == 'Chinese OR China' || type == b && b == 'Turkish OR Turkey' || type == b && b == 'Indian OR India' || type == b && b == 'Italian OR Italy' || b == 'test') {
+
+                            if (type == 'Greek OR Greece') {
+                                var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
+                            }
+                            else if (type == 'Chinese OR China') {
+                                var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
+                            }
+                            else if (type == 'Turkish OR Turkey') {
+                                var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_purple.png';
+                            }
+                            else if (type == 'Indian OR India') {
+                                var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_brown.png';
+                            }
+                            else if (type == 'Italian OR Italy') {
+                                var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_green.png';
                             }
 
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: point,
+                                icon: icon1,
+                                sidebarItem: event
+                            });
+                            bindInfoWindow(marker, map, infoWindow, html);
                         }
-
-
-                    });
-
-                    function bindInfoWindow(marker, map, infoWindow, html) {
-                        google.maps.event.addListener(marker, 'click', function () {
-                            infoWindow.setContent(html);
-                            infoWindow.open(map, marker);
-                        });
-
-
-                        google.maps.event.addListener(map, 'click', function () {
-                            infoWindow.close();
-                        });
-
+                        function SidebarItem(marker, opts){
+                            var tag = "button";
+                            var row = document.createElement(tag);
+                            row.innerHTML = opts.sidebarItem;
+                            row.className = "sidebar_item";
+                            row.style.display = "block";
+                            row.style.width = "120px";
+                            row.onclick = function(){
+                                google.maps.event.trigger(marker, 'click');
+                            }
+                            row.onmouseover = function(){
+                                google.maps.event.trigger(marker, 'mouseover');
+                            }
+                            row.onmouseout = function(){
+                                google.maps.event.trigger(marker, 'mouseout');
+                            }
+                            this.button = row;
+                        }
+                        // adds a sidebar item to a <div>
+                        SidebarItem.prototype.addIn = function(block){
+                            if(block && block.nodeType == 1)this.div = block;
+                            else
+                                this.div = document.getElementById(block)
+                                        || document.getElementById("sidebar")
+                                        || document.getElementsByTagName("body")[0];
+                            this.div.appendChild(this.button);
+                        }
+                        // deletes a sidebar item
+                        SidebarItem.prototype.remove = function(){
+                            if(!this.div) return false;
+                            this.div.removeChild(this.button);
+                            return true;
+                        }
 
                     }
 
+
+                });
+
+                function bindInfoWindow(marker, map, infoWindow, html) {
+                    google.maps.event.addListener(marker, 'click', function () {
+                        infoWindow.setContent(html);
+                        infoWindow.open(map, marker);
+                    });
+
+
+                    google.maps.event.addListener(map, 'click', function () {
+                        infoWindow.close();
+                    });
+
+
+                }
+
             }
 
-                function downloadUrl(url, callback) {
-                    var request = window.ActiveXObject ?
-                            new ActiveXObject('Microsoft.XMLHTTP') :
-                            new XMLHttpRequest;
+            function downloadUrl(url, callback) {
+                var request = window.ActiveXObject ?
+                        new ActiveXObject('Microsoft.XMLHTTP') :
+                        new XMLHttpRequest;
 
-                    request.onreadystatechange = function () {
-                        if (request.readyState == 4) {
-                            request.onreadystatechange = doNothing;
-                            callback(request, request.status);
-                        }
-                    };
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4) {
+                        request.onreadystatechange = doNothing;
+                        callback(request, request.status);
+                    }
+                };
 
-                    request.open('GET', url, true);
-                    request.send(null);
-                }
+                request.open('GET', url, true);
+                request.send(null);
+            }
 
-                function doNothing() {
-                }
-
+            function doNothing() {
+            }
             //]]>
 
 
         </script>
 
         <head>
-        <link rel="stylesheet" type="text/css" href="Infowindow.css">
+        <link rel="stylesheet" type="text/css" href="../css/Infowindow.css">
 
 <body onload="load('test')">
 <div id="map-canvas" ></div>
@@ -153,6 +208,7 @@
     <button onclick="load('Turkish OR Turkey')">Turkish</button>
 
 </div>
+<div id="sidebar"></div>
 </body>
 </head>
 </html>

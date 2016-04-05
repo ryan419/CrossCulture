@@ -1,145 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<title>Community Map</title>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAohlvHFSdn17Csms1_VTA-BNkvc4aJ9YY"
-        type="text/javascript"></script>
-<script type="text/javascript">
-    //<![CDATA[
+<head>
+    <meta charset="UTF-8">
+    <title>CrossCulture</title>
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="css/animate.css">
 
 
-    function load() {
-        var map = new google.maps.Map(document.getElementById("map-canvas"), {
-            center: new google.maps.LatLng(-37.814396, 144.963616),
-            zoom: 10,
-            mapTypeId: 'roadmap',
-            minZoom: 9,
-            maxZoom: 14
-        });
-        //map.setMyLocationEnabled(true);
-        test(map);
-    }
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
-    function test(map){
+    <link href="../css/bootstrap.css" rel="stylesheet">
 
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/Infowindow.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
 
-        var infoWindow = new google.maps.InfoWindow({minWidth: 300, maxWidth: 350});
+    <script src="../js/pace.js"></script>
 
 
-        // Change this depending on the name of your PHP file
-        downloadUrl("../php/gencommap.php", function (data) {
-            var xml = data.responseXML;
-            var markers = xml.documentElement.getElementsByTagName("marker");
-            for (var i = 0; i < markers.length; i++) {
-                var name = markers[i].getAttribute("comname");
-                var address = markers[i].getAttribute("comaddress");
-                var phone = markers[i].getAttribute("comphone");
-                var website = markers[i].getAttribute("web");
-                var culture = markers[i].getAttribute("cul");
-                var point = new google.maps.LatLng(
-                        parseFloat(markers[i].getAttribute("lat")),
-                        parseFloat(markers[i].getAttribute("lon")));
-                //document.write(type);
-
-                var html = '<div id="iw-container">' +
-                        '<div class="iw-title">' + name + '</div>' +
-                        '<div class="iw-content">' +
-                        '<p class="iw-subTitle">Address</p>'+ address+
-                        '<p class="iw-subTitle">Phone</p>'+ phone+
-                        '<br><br><a href="'+website+'" target="_blank">Visit Their Website'+
-                        '</div>' +
-                        '<div class="iw-bottom-gradient"></div>' +
-                        '</div>';
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
 
 
-                var a = document.getElementById("Culture");
-                var b = a.value;
-                if ((culture == b && b == 'Greek') || culture == b && b == 'China' || culture == b && b == 'Turkish' || culture == b && b == 'Indian' || culture == b && b == 'Italian' || b=='test') {
-
-                    if (culture == 'Greek') {
-                        var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_blue.png';
-                    }
-                    else if (culture == 'China') {
-                        var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_red.png';
-                    }
-                    else if (culture == 'Turkish') {
-                        var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_purple.png';
-                    }
-                    else if (culture == 'Indian') {
-                        var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_brown.png';
-                    }
-                    else if (culture == 'Italian') {
-                        var icon1 = 'http://labs.google.com/ridefinder/images/mm_20_green.png';
-                    }
-
-                    var marker = new google.maps.Marker({
-                        map: map,
-                        position: point,
-                        icon: icon1
-                    });
-                    bindInfoWindow(marker, map, infoWindow, html);
-                }
-
-            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="..//assets/js/jquery.min.js"></script>
 
 
-        });
+    <script src="../js/bootstrap.min.js"></script>
 
-        function bindInfoWindow(marker, map, infoWindow, html) {
-            google.maps.event.addListener(marker, 'click', function () {
-                infoWindow.setContent(html);
-                infoWindow.open(map, marker);
-            });
+    <!-- [profolio B] -->
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="../themes/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+
+    <!--simple-line-icons-->
 
 
-            google.maps.event.addListener(map, 'click', function () {
-                infoWindow.close();
-            });
+    <script src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="..//assets/js/modernizr.custom.js"></script>
 
+    <link rel="stylesheet" href="../assets/css/icomoon.css">
+    <link href="../assets/css/animate-custom.css" rel="stylesheet">
 
-        }
-    }
-
-    function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-                new ActiveXObject('Microsoft.XMLHTTP') :
-                new XMLHttpRequest;
-
-        request.onreadystatechange = function () {
-            if (request.readyState == 4) {
-                request.onreadystatechange = doNothing;
-                callback(request, request.status);
-            }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-    }
-
-    function doNothing() {
-    }
-    //]]>
-
-</script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAohlvHFSdn17Csms1_VTA-BNkvc4aJ9YY"
+            type="text/javascript"></script>
+    <script src="../js/commap.js" type="text/javascript"></script>
 </head>
-<link rel="stylesheet" type="text/css" href="../css/Infowindow.css">
+<body onload="load('test')">
+<header id="navigation" class="navbar-static-top" style="background-color: rgba(0, 0, 0, 0.3);">
+    <div class="container">
 
-<body onload="load()">
-<div id="map-canvas" ></div>
-<div>
-    <select id="Culture"  name="Culture" onchange="test(load().map)">
-        <option value="test"  selected="selected">Choose a culture</option>
-        <option value="China">Chinese</option>
-        <option value="Indian">Indian</option>
-        <option value="Greek">Greek</option>
-        <option value="Italian">Italian</option>
-        <option value="Turkish">Turkish</option>
-    </select>
+        <div class="navbar-header">
+            <!-- responsive nav button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- /responsive nav button -->
+
+            <!-- logo -->
+            <h1 class="navbar-brand">
+                <a href="#body">
+                    <img src="../images/logo.png" width="112" height="36" alt="Logo">
+                </a>
+            </h1>
+            <!-- /logo -->
+
+        </div>
+
+        <!-- main nav -->
+        <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
+            <ul id="nav" class="nav navbar-nav">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li class="current"><a href="community.html">Community</a></li>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- /main nav -->
+    </div>
+
+    </div>
+</header>
+
+<div id="container">
+    <div id="wrapper">
+        <div id="content">
+            <div id="buttonculture">
+                <button class="btn btn-1 btn-1a" onclick="load('test')">All</button><br>
+                <button class="btn btn-1 btn-1a" style="background-color: red;" onclick="load('China')">Chinese</button><br>
+                <button class="btn btn-6 btn-6a" style="background-color: blue;" onclick="load('Greek')">Greek</button><br>
+                <button class="btn btn-6 btn-6a" style="background-color: #c0a16b;" onclick="load('Indian')">Indian</button><br>
+                <button class="btn btn-6 btn-6a" style="background-color: #4CAF50;" onclick="load('Italian')">Italian</button><br>
+                <button class="btn btn-6 btn-6a" style="background-color: purple;" onclick="load('Turkish')">Turkish</button><br>
+            </div>
+            <div id="map-canvas"></div>
+            <div id="sidebar"></div>
+        </div>
+
+    </div>
+</div>
+<div id="explore">
+
+    <!--
+            #Portfolio
+            ========================== -->
+
+    <section id="portfolio">
+
+        <div class="section-title text-center wow fadeInDown">
+            <h2>Communities</h2>
+            <p>We collect Chinese, Indian, Greek, Italian and Turkish communities.</p>
+        </div>
+        <div id="projects" class="clearfix">
+
+        </div>
+    </section>
 </div>
 
+
 </body>
-</html></title>
-</head>
 
 </html>

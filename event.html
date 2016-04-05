@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<head>
+    <meta charset="UTF-8">
+    <title>CrossCulture</title>
+
+    <!-- Animate -->
+    <link rel="stylesheet" href="css/animate.css">
+
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <link href="../css/bootstrap.css" rel="stylesheet">
+
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/Infowindow.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <script src="../js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/pace.js"></script>
+
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet" type="text/css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="..//assets/js/jquery.min.js"></script>
+
+
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- [profolio B] -->
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]>
+    <script src="../themes/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic'
+          rel='stylesheet' type='text/css'>
+
+    <!--simple-line-icons-->
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="..//assets/js/modernizr.custom.js"></script>
+
+    <link rel="stylesheet" href="../assets/css/icomoon.css">
+    <link href="../assets/css/animate-custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAohlvHFSdn17Csms1_VTA-BNkvc4aJ9YY"
+            type="text/javascript"></script>
+    <script src="../js/map.js" type="text/javascript"></script>
+</head>
+<body onload="load('test')">
+<header id="navigation" class="navbar-static-top" style="background-color: #2f2f2f;">
+    <div class="container">
+
+        <div class="navbar-header">
+            <!-- responsive nav button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- /responsive nav button -->
+
+            <!-- logo -->
+            <h1 class="navbar-brand">
+                <a href="#body">
+                    <img src="../images/logo.png" width="112" height="36" alt="Logo">
+                </a>
+            </h1>
+            <!-- /logo -->
+
+        </div>
+
+        <!-- main nav -->
+        <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
+            <ul id="nav" class="nav navbar-nav">
+                <li><a href="../index.html">Home</a></li>
+                <li class="current"><a href="event.html">Event</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- /main nav -->
+    </div>
+
+    </div>
+</header>
+
+<div id="container">
+        <div id="content">
+            <div id="buttonculture">
+                <button class="denem btn-1 btn-1a" onclick="load('test')">All</button><br>
+                <button class="denem1 btn-1 btn-1a" onclick="load('Chinese OR China')">Chinese</button><br>
+                <button class="denem2 btn-1 btn-1a" onclick="load('Greek OR Greece')">Greek</button><br>
+                <button class="denem3 btn-1 btn-1a" onclick="load('Indian OR India')">Indian</button><br>
+                <button class="denem4 btn-1 btn-1a" onclick="load('Italian OR Italy')">Italian</button><br>
+                <button class="denem5 btn-1 btn-1a" onclick="load('Turkish OR Turkey')">Turkish</button><br>
+            </div>
+            <div id="map-canvas"></div>
+        </div>
+        <div id="sidebar"></div>
+</div>
+
+<div id="explore">
+
+    <!--
+            #Portfolio
+            ========================== -->
+
+    <section id="portfolio">
+
+        <div class="section-title text-center wow fadeInDown">
+            <h2>Events</h2>
+            <p>We collect cultural events of Chinese, Indian, Greek, Italian and Turkish.</p>
+        </div>
+        <div id="projects" class="clearfix">
+
+        </div>
+    </section>
+</div>
+
+
+</body>
+
+</html>

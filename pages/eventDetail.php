@@ -52,7 +52,7 @@ foreach($result as $row){
     $pcode = $row['postcode'];
 }
 ?>
-<header id="navigation" class="navbar-static-top" style="background-color: rgba(0, 0, 0, 0.3);">
+<header id="navigation" class="navbar-static-top" style="background-color: #2f2f2f;">
     <div class="container">
 
         <div class="navbar-header">
@@ -68,7 +68,7 @@ foreach($result as $row){
             <!-- logo -->
             <h1 class="navbar-brand">
                 <a href="#body">
-                    <img src="../images/logo.png" width="112" height="36" alt="Logo">
+                    <a href="../index.html"><img src="../images/logo.png" width="112" height="36" alt="Logo">
                 </a>
             </h1>
             <!-- /logo -->
@@ -81,9 +81,9 @@ foreach($result as $row){
                 <li><a href="../index.html">Home</a></li>
                 <li class="current"><a href="event.html">Event</a></li>
                 <li><a href="community.html">Community</a></li>
-                <li><a href="#story">Story</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="story.html">Story</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <!-- /main nav -->
@@ -103,11 +103,11 @@ foreach($result as $row){
 
 </div>
 <div class="container">
-    <div class="descp">
+    <div class="descp" style="margin-left: 90px; margin-right: 50px;">
         <b>Detail:</b><br>
         <?=$descp?>
     </div>
-    <div class="detail">
+    <div class="detail" style="margin-left: 0px">
         <b>Address</b>
         <br>
         <?=$address?>
@@ -138,6 +138,13 @@ foreach($result as $row){
         <?=$cap.' people'?>
     </div>
     <div id="clear"></div>
+</div>
+<div class="container">
+    <section class="rowfooter breath" >
+        <div class="col-md-12 footerlinks"  style="background-color: #2f2f2f;">
+            <p><br>© 2016 Dream Builders. All Rights Reserved</p>
+        </div>
+    </section>
 </div>
 
 

@@ -23,13 +23,7 @@ function getEventInfo($culture){
 
     $result = $eb_client->events('events/search/', $info)["events"];
 
-//$result = json_decode($eb_client->events('events/search/',$info)["events"]);
-    $hn = 'localhost';
-    $db = 'crossculture';
-    $un = 'root';
-    $pw = '';
-
-    $conn = new mysqli($hn, $un, $pw, $db);
+    $conn = new mysqli;
     if ($conn->connect_error) die($conn->connect_error);
 
     foreach ($result as $event) {

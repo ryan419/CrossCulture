@@ -78,7 +78,7 @@
             <!-- logo -->
             <h1 class="navbar-brand">
                 <a href="#body">
-                    <img src="images/logo.png" width="112" height="36" alt="Logo">
+                    <a href="index.html"><img src="images/logo.png"  width="112" height="36" alt="Logo">
                 </a>
             </h1>
             <!-- /logo -->
@@ -89,39 +89,21 @@
         <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
             <ul id="nav" class="nav navbar-nav">
                 <li class="current"><a href="#home">Home</a></li>
-                <li><a href="pages/event.html">Event</a></li>
-                <li><a href="pages/community.html">Community</a></li>
-                <li><a href="#story">Story</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="pages/event.html?clt=test">Event</a></li>
+                <li><a href="pages/Community.html">Community</a></li>
+                <li><a href="pages/story.html">Story</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
             </ul>
         </nav>
         <!-- /main nav -->
     </div>
 
-    </div>
 </header>
 <!--
 End Fixed Navigation
 ==================================== -->
-<!--
-End Fixed Navigation
-==================================== -->
 
-
-<!-- main nav -->
-<nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
-    <ul id="nav" class="nav navbar-nav">
-        <li class="current"><a href="#home">Home</a></li>
-        <li><a href="#event">Event</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#story">Story</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-<!-- /main nav -->
-</div>
 
 
 <div style="display: none;" class="preloader">
@@ -140,12 +122,12 @@ End Fixed Navigation
         <div class="logo"><a href="index.html#"><img src="images/logo.png" alt="logo"></a>
         </div>
 
-        <h1>The Most Excellent <strong>Cultural Event</strong> <br>
+        <h1>The Most Excellent <strong>Cultural Event Platform</strong> <br>
             to <strong>enjoy</strong> your new life.</h1>
 
         <div class="row">
             <div class="col-md-6 col-sm-12 col-md-offset-3 subscribe">
-                <form class="form-horizontal" role="form" action="subscribe.php" id="subscribeForm" method="POST">
+                <form class="form-horizontal" role="form" id="subscribeForm" >
                     <div class="form-group">
                         <div class="col-md-7 col-sm-6 col-sm-offset-1 col-md-offset-0">
                             <div class="dropdown">
@@ -154,13 +136,13 @@ End Fixed Navigation
                                     Culture -<span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu form-control drop-item" aria-labelledby="dropdownMenu1">
-                                    <li><a href="#">All Cultures</a></li>
+                                    <li><a id="aclt">All Cultures</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Chinese</a></li>
-                                    <li><a href="#">Indian</a></li>
-                                    <li><a href="#">Greek</a></li>
-                                    <li><a href="#">Italian</a></li>
-                                    <li><a href="#">Turkish</a></li>
+                                    <li><a id="cnclt">Chinese</a></li>
+                                    <li><a id="inclt">Indian</a></li>
+                                    <li><a id="grclt">Greek</a></li>
+                                    <li><a id="itclt">Italian</a></li>
+                                    <li><a id="trclt">Turkish</a></li>
 
                                 </ul>
                             </div>
@@ -168,7 +150,7 @@ End Fixed Navigation
                         </div>-->
                         </div>
                         <div class="col-md-5 col-sm-4">
-                            <button type="submit" class="btn btn-success btn-lg">FIND EVENTS</button>
+                            <button id="febtn" type="button" class="btn btn-success btn-lg">FIND EVENTS</button>
                         </div>
                     </div>
                 </form>
@@ -183,119 +165,9 @@ End Fixed Navigation
 </main><!-- --/main ---->
 
 
-<!-- -- ******************** FEATURES SECTION ******************** ---->
-<div id="explore">
-
-    <!--
-            #Portfolio
-            ========================== -->
-
-    <section id="portfolio">
-
-        <div class="section-title text-center wow fadeInDown">
-            <h2>Events</h2>
-            <p>We collect cultural events of Chinese, Indian, Greek, Italian and Turkish.</p>
-        </div>
-
-        <nav class="project-filter clearfix text-center wow fadeInLeft" data-wow-delay="0.5s">
-            <ul class="list-inline">
-                <li><a href="javascript:;" class="filter" data-filter="all">All</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".cn">Chinese</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".gr">Indian</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".it">Greek</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".tr">Italian</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".ind">Turkish</a></li>
-            </ul>
-        </nav>
-
-        <div id="projects" class="clearfix">
-
-            <figure class="mix portfolio-item cn">
-                <img class="img-responsive" src="images/event/e1cn.jpg" alt="Portfolio Item">
-                <a href="images/event/e1cn.jpg" title="FIRB: Update on the new foreign investment regime"
-                   rel="portfolio" class="fancybox"><span class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Chinese</h3>
-                    <span>Update on the new foreign investment regime</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item ind">
-                <img class="img-responsive" src="images/event/e1ind.jpg" alt="Portfolio Item">
-                <a href="images/event/e1ind.jpg" title="How can we respond to the growing burden of NCDs in India?" rel="portfolio" class="fancybox"><span
-                        class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Hindu</h3>
-                    <span>How can we respond...</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item it">
-                <img class="img-responsive" src="images/event/e1it.jpg" alt="Portfolio Item">
-                <a href="images/event/e1it.jpg" title="Italian Wine + Food Festival" rel="portfolio"
-                   class="fancybox"><span class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Italian</h3>
-                    <span>Wine and Food Festival</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item tr">
-                <img class="img-responsive" src="images/event/e1tk.jpg" alt="Portfolio Item">
-                <a href="images/event/e1tk.jpg" title="Turkish National Sovereignty and Children's Day" rel="portfolio" class="fancybox"><span
-                        class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Turkish</h3>
-                    <span>Turkish National Sovereignty and ...</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item gr">
-                <img class="img-responsive" src="images/event/e3gr.jpg" alt="Portfolio Item">
-                <a href="images/event/e3gr.jpg" title="Rising To The Occasion with Orlando Artavilla" rel="portfolio" class="fancybox"><span
-                        class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Greece</h3>
-                    <span>Rising To The Occasion with Orlando Artavilla</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item cn">
-                <img class="img-responsive" src="images/event/e2cn.jpg" alt="Portfolio Item">
-                <a href="images/event/e2cn.jpg" title="Tai Chi at The Dock" rel="portfolio" class="fancybox"><span
-                        class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Chinese</h3>
-                    <span>Tai Chi at The Dock</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item ind">
-                <img class="img-responsive" src="images/event/e2ind.jpg" alt="Portfolio Item">
-                <a href="images/event/e2ind.jpg" title="The Grand Tour: Cities Shaped by Art" rel="portfolio" class="fancybox"><span
-                        class="plus"></span></a>
-                <figcaption class="mask">
-                    <h3>Hindu</h3>
-                    <span>The Grand Tour</span>
-                </figcaption>
-            </figure>
-
-            <figure class="mix portfolio-item cn ind it tr gr">
-                <a href="">
-                <span class="plusmore"></span>
-                </a>
-            </figure>
-
-        </div> <!-- end #projects -->
-
-    </section>
-    <!--
-    End #Portfolio
-
-
 
 <!-- -- ******************** TESTIMONIALS SECTION ******************** ---->
-    <div class="highlight testimonials">
+    <div>
         <div class="section-title">
             <h2>Communities</h2>
             <p>Find your own community and meet people of your culture </p>
@@ -313,46 +185,12 @@ End Fixed Navigation
                                      src="images/community/cworld.jpg" alt="">
                                 <figcaption>
                                     <h5>All Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=test" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
                         </div><!-- /grid-mask -->
                     </div><!-- /col -->
-
-
-                    <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
-                         a modal for each of your projects. -->
-
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title">Project Title</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p><img class="img-responsive"
-                                            src="images/community/cnc.jpg"
-                                            alt=""></p>
-                                    <p>Italian Festival
-                                        <br>
-                                        Location: Clarendon St, South Melbourne
-                                        <br>
-                                        Time: 9 a.m. 12/04/2016
-                                        <br>
-                                        Ticket: Free
-                                    </p>
-                                    <p><b><a href="#">Read More</a></b></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
 
 
                     <!-- PORTFOLIO IMAGE 2 -->
@@ -364,7 +202,7 @@ End Fixed Navigation
                                      alt="">
                                 <figcaption>
                                     <h5>Chinese Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=Chinese OR China" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
@@ -380,7 +218,7 @@ End Fixed Navigation
                                      alt="">
                                 <figcaption>
                                     <h5>Italian Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=Italy OR Italian" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
@@ -402,46 +240,13 @@ End Fixed Navigation
                                      src="images/community/cgr.jpg" alt="">
                                 <figcaption>
                                     <h5>Greece Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=Greek OR Greece" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
                         </div><!-- /grid-mask -->
                     </div><!-- /col -->
 
-
-                    <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
-                         a modal for each of your projects. -->
-
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"
-                                            aria-hidden="true">&times;</button>
-                                    <h4 class="modal-title">Project Title</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p><img class="img-responsive"
-                                            src="images/community/cin.jpg"
-                                            alt=""></p>
-                                    <p>Italian Festival
-                                        <br>
-                                        Location: Clarendon St, South Melbourne
-                                        <br>
-                                        Time: 9 a.m. 12/04/2016
-                                        <br>
-                                        Ticket: Free
-                                    </p>
-                                    <p><b><a href="#">Read More</a></b></p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
 
 
                     <!-- PORTFOLIO IMAGE 2 -->
@@ -453,7 +258,7 @@ End Fixed Navigation
                                      alt="">
                                 <figcaption>
                                     <h5>Indian Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=Indian OR India" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
@@ -469,7 +274,7 @@ End Fixed Navigation
                                      alt="">
                                 <figcaption>
                                     <h5>Turkish Communities</h5>
-                                    <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Take a
+                                    <a data-toggle="modal" href="pages/Community.html?clt=Turkish OR Turkey" class="btn btn-primary btn-lg">Take a
                                         Look</a>
                                 </figcaption><!-- /figcaption -->
                             </figure><!-- /figure -->
@@ -492,20 +297,20 @@ End Fixed Navigation
 
             <div class="row">
                 <div class="col-md-12 breath text-center">
-                    <a href="index.html#top" class="btn btn-success btn-lg gototop">Contact Us</a>
+                    <a href="pages/contact.html" class="btn btn-success btn-lg gototop">Contact Us</a>
                 </div>
             </div>
         </div><!-- --/container ---->
     </main><!-- --/main ---->
 
-    <div class="container">
-        <section class="rowfooter breath">
-            <div class="col-md-12 footerlinks">
-                <p>© 2016 Dream Builders. All Rights Reserved</p>
-            </div>
-        </section><!-- --/section ---->
-    </div><!-- --/container ---->
-
+<div class="container">
+    <section class="rowfooter breath" >
+        <div class="col-md-12 footerlinks"  style="background-color: #2f2f2f;">
+            <p><br>© 2016 Dream Builders. All Rights Reserved</p><br>
+            <!--<a href="index.html"><img src="images/logo.png"  width="112" height="36" alt="Logo">-->
+        </div>
+    </section>
+</div>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
@@ -535,9 +340,8 @@ End Fixed Navigation
     <script src="js/main.js"></script>
 
 
-    <script>
-
-
+    <script type="text/javascript">
+        var culture = 'select';
         $(function () {
             $('.scrollto, .gototop').bind('click', function (event) {
                 var $anchor = $(this);
@@ -547,7 +351,38 @@ End Fixed Navigation
                 event.preventDefault();
             });
         });
+        document.getElementById('aclt').addEventListener("click", function(){
+            culture = 'test';
+            document.getElementById('dropdownMenu1').innerHTML='All Cultures';
+        });
+        document.getElementById('cnclt').addEventListener("click", function(){
+            culture = 'Chinese OR China';
+            document.getElementById('dropdownMenu1').innerHTML='Chinese';
+        });
+        document.getElementById('inclt').addEventListener("click", function(){
+            culture = 'Indian OR India';
+            document.getElementById('dropdownMenu1').innerHTML='Indian';
+        });
+        document.getElementById('grclt').addEventListener("click", function(){
+            culture = 'Greek OR Greece';
+            document.getElementById('dropdownMenu1').innerHTML='Greek';
+        });
+        document.getElementById('trclt').addEventListener("click", function(){
+            culture = 'Turkish OR Turkey';
+            document.getElementById('dropdownMenu1').innerHTML='Turkish';
+        });
+        document.getElementById('itclt').addEventListener("click", function(){
+            culture = 'Italian OR Italy';
+            document.getElementById('dropdownMenu1').innerHTML='Italian';
+        });
+        document.getElementById('febtn').addEventListener("click", function(){
+            if (culture === 'select'){
+                alert('Please select one option');
+            }else{
+                window.location="pages/event.html?clt=" + culture;
+            }
 
+        });
 
     </script>
 
@@ -556,7 +391,7 @@ End Fixed Navigation
     <script type="text/javascript" src="/assets/js/smoothscroll.js"></script>
     <script type="text/javascript" src="/assets/js/jquery-func.js"></script>
 
-
+</div>
 </body>
 <style type="text/css"></style>
 </html>

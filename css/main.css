@@ -122,7 +122,7 @@ a:hover,a:focus{color:#5173bd;}
 	}
 .breath{/*! margin:50px auto; */}
 
-.highlight{background:#f4f4f4;margin-top:40px;}
+.highlight{background:#f4f4f4;}
 
 .masthead{
 	position:relative;
@@ -320,7 +320,7 @@ to {
 
 .section-title {
 	text-align:center;
-	margin-top:60px;
+	/*margin-top:60px;*/
 	margin-bottom:30px;
 	width: 420px;
 	margin: 0 auto 40px;
@@ -736,7 +736,7 @@ margin-left: -15px;
 .rowfooter {
 	margin-right: 0px;
 	margin-left:-15px;
-	margin-top:50px;
+	/*margin-top:50px;*/
 }
 
 .modal-header {

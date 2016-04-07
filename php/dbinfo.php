@@ -5,8 +5,8 @@
  * Date: 29/03/2016
  * Time: 4:24 PM
  */
-$hn = 'localhost';
+$hn = 'au-cdbr-azure-east-a.cloudapp.net';
 $db = 'crossculture';
-$un = 'root';
-$pw = '';
+$un = 'b7ab3654e373f0';
+$pw = '732acd95';
 ?>

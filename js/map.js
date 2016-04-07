@@ -1,7 +1,30 @@
 /**
  * Created by Xiao on 5/04/2016.
  */
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
+function isRealValue(obj){
+    return obj && obj !== "null" && obj!== "undefined";
+}
+
+function firstLoad(){
+
+    var clt = getParameterByName('clt');
+    if(!isRealValue(clt)){
+        load('test');
+    }
+    else{
+        load(clt);
+    }
+}
 
 function load(culture) {
 
@@ -53,17 +76,16 @@ function load(culture) {
                 '<div class="iw-content">' +
                 '<div class="iw-subTitle">Where?</div>' +
                 '<img src=' + logo + ' height="130" width="150">' +
-                '<p>' + venue + '</p>' +
+                '<div>' + venue + '</div><br>' +
                 '<div class="iw-subTitle">When?</div>' +
-                '<p>' + start.substr(0, 10) + '<br>' + start.substr(11, 5) + '</p>' +
-                '<p><a href="eventDetail.php?event=' + event +'">Get More Information</a></p>' +
-                '</div>' +
+                '<div>' + start.substr(0, 10) + '<br>' + start.substr(11, 5) + '</div><br>' +
+                '<div><a href="eventDetail.php?event=' + event +'">Get More Information</a></div></div>' +
                 '<div class="iw-bottom-gradient"></div>' +
                 '</div>';
 
-            var html_sidebar ='<div id="iw-container">' +
-                '<div class="iw-title">' + event + '</div>' + venue+
-                '<div class="iw-content">' +'<img src=' + logo + ' height="100" width="150">' +
+            var html_sidebar ='<div id="side-container">' +
+                '<div class="side-title">' + event + '</div>' +
+                '<div class="side-img">' +'<img src=' + logo + ' height="100">' +
                 '<p><a href="eventDetail.php?event=' + event +'">Get More Information</a></p>' +
                 '</div>' +
                 '<div class="iw-bottom-gradient"></div>';

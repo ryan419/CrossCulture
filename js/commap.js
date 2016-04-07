@@ -1,8 +1,35 @@
 /**
  * Created by nerminyildiz on 5.04.2016.
  */
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
+function isRealValue(obj){
+    return obj && obj !== "null" && obj!== "undefined";
+}
+
+function firstLoad(){
+
+    var clt = getParameterByName('clt');
+    if(!isRealValue(clt)){
+        load('test');
+
+    }else{
+        load(clt);
+    }
+}
 function load(culture) {
+
+    //alert(culture);
+    var markerBounds = new google.maps.LatLngBounds();
+    var markerArray = [];
     var map = new google.maps.Map(document.getElementById("map-canvas"), {
         center: new google.maps.LatLng(-37.814396, 144.963616),
         zoom: 10,
@@ -37,13 +64,20 @@ function load(culture) {
 
             var html = '<div id="iw-container">' +
                 '<div class="iw-title">' + name + '</div>' +
-                '<div class="iw-content">' +
+                '<div align="center" class="iw-content">' +
                 '<p class="iw-subTitle">Address</p>'+ address+
                 '<p class="iw-subTitle">Phone</p>'+ phone+
                 '<br><br><a href="'+website+'" target="_blank">Visit Their Website'+
                 '</div>' +
                 '<div class="iw-bottom-gradient"></div>' +
                 '</div>';
+            
+            var html1 = '<div class="side-container">'+
+                '<div class="side-title">'+ name + '</div>'+
+                '<p class="iw-subTitle">Address</p>'+ address+
+                '<p class="iw-subTitle">Phone</p>'+ phone+
+                '<br><br><a href="'+website+'" target="_blank">Visit Their Website'+
+                '</div>' ;
 
 
             //var a = document.getElementById("Culture");
@@ -71,7 +105,21 @@ function load(culture) {
                     position: point,
                     icon: icon1
                 });
+                var options={
+                    sidebarItem: html1,
+                    sidebarItemWidth: "326px"
+                }
+                marker.setOptions(options);
+
                 bindInfoWindow(marker, map, infoWindow, html);
+                var idleIcon = marker.getIcon();
+
+                if(options.sidebarItem){
+                    marker.sidebarButton = new SidebarItem(marker, options);
+                    marker.sidebarButton.addIn("sidebar");
+                }
+                markerBounds.extend(point);
+                markerArray.push(marker);
             }
 
         }
@@ -83,6 +131,7 @@ function load(culture) {
         google.maps.event.addListener(marker, 'click', function () {
             infoWindow.setContent(html);
             infoWindow.open(map, marker);
+            if(this.sidebarButton)this.sidebarButton.button.focus();
         });
 
 
@@ -111,5 +160,37 @@ function downloadUrl(url, callback) {
 }
 
 function doNothing() {
+}
+
+function SidebarItem(marker, opts){
+    var tag = opts.sidebarItemType || "button";
+    var row = document.createElement(tag);
+    row.innerHTML = opts.sidebarItem;
+    row.className = opts.sidebarItemClassName || "sidebar_item";
+    row.style.display = "block";
+    row.style.width = opts.sidebarItemWidth || "120px";
+    row.onclick = function(){
+        google.maps.event.trigger(marker, 'click');
+    }
+    row.onmouseover = function(){
+        google.maps.event.trigger(marker, 'mouseover');
+    }
+    row.onmouseout = function(){
+        google.maps.event.trigger(marker, 'mouseout');
+    }
+    this.button = row;
+}
+// adds a sidebar item to a
+
+SidebarItem.prototype.addIn = function(block){
+
+    this.div= document.getElementById("sidebar");
+    this.div.appendChild(this.button);
+}
+// deletes a sidebar item
+SidebarItem.prototype.remove = function(){
+    if(!this.div) return false;
+    this.div.removeChild(this.button);
+    return true;
 }
 
